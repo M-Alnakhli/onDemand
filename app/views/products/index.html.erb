@@ -1,0 +1,25 @@
+<h1>this is my last command</h1>
+
+<%if @elemnts%>
+<p>you have bought these items</p>
+<%@elemnts.each do |item|%>
+    <table>
+    <tr>
+    <td><%=item.img%></td>
+    <td><%=item.name%></td>
+    <td><p>quantitiy :</p><%=item.amount%></td>
+  </tr>
+  </table>
+  <%end%>
+  <%end%>
+
+ <div class = line_between></div>
+
+<% @availbles.each do |item|%>
+   <div>
+    <img src=<%=item.img%>>
+    <p><%=link_to item.name ,product_path(item)%></p>
+    </div>
+    <%end%>
+
+
