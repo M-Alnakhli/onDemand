@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tajir:</strong>
+  <%= @own.tajir_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @own.product_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @own.amount %>
+</p>
+
+<%= link_to 'Edit', edit_own_path(@own) %> |
+<%= link_to 'Back', owns_path %>

@@ -1,25 +1,14 @@
 <h1>this is my last command</h1>
+<% @carts.each do |cart|%>
+  <%= cart.product.name %>
+<%end%>
+<div></div>
 
-<%if @elemnts%>
-<p>you have bought these items</p>
-<%@elemnts.each do |item|%>
-    <table>
-    <tr>
-    <td><%=item.img%></td>
-    <td><%=item.name%></td>
-    <td><p>quantitiy :</p><%=item.amount%></td>
-  </tr>
-  </table>
-  <%end%>
-  <%end%>
+<% @whishlLists.each do |whishlList|%>
+  <%= whishlList.product.name %>
+<%end%>
 
- <div class = line_between></div>
-
-<% @availbles.each do |item|%>
-   <div>
-    <img src=<%=item.img%>>
-    <p><%=link_to item.name ,product_path(item)%></p>
-    </div>
-    <%end%>
-
-
+<div></div>
+<% @orders.each do |order|%>
+  <%= order.product.name %>
+<%end%>

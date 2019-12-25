@@ -1,25 +1,19 @@
 <h1>this is my last command</h1>
 
-<%if @elemnts%>
+
 <p>you have bought these items</p>
-<%@elemnts.each do |item|%>
+<%@products.each do |item|%>
     <table>
     <tr>
-    <td><%=item.img%></td>
+    <td><img src=<%=item.img%>></td>
     <td><%=item.name%></td>
     <td><p>quantitiy :</p><%=item.amount%></td>
+    <td>
+    <%= link_to "Add to Cart", new_product_cart_path(item)%>
+    <%= link_to "Add wishList", new_product_whish_list_path(item)%>
+    <%= link_to "buy", new_product_order_path(item)%>
+    </td>
   </tr>
   </table>
   <%end%>
-  <%end%>
-
- <div class = line_between></div>
-
-<% @availbles.each do |item|%>
-   <div>
-    <img src=<%=item.img%>>
-    <p><%=link_to item.name ,product_path(item)%></p>
-    </div>
-    <%end%>
-
 

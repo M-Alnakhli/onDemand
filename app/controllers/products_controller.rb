@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only:  [:show, :index]
+    before_action :authenticate_tajir!,except:  [:show, :index]
    def index
-
+    @products =Product.all
    end
     def show 
         @product = Product.find(params[:id])
@@ -10,11 +11,17 @@ class ProductsController < ApplicationController
     def new
         @product=Product.new
         
+        
     end
 
+    def add 
+        
+    end 
+
     def create 
-        @product
-        current_user.products.create(product_params)
+        
+        @product =Product.create(product_params)
+        current_tajir.owns.create(product_id = @product)
         redirect_to products_path(@product)
     end 
     
@@ -28,6 +35,7 @@ class ProductsController < ApplicationController
 
     def edit
         @product=current_user.products.find(params[:id])
+        redirect_to products_path(@product)
     end 
 
     def update

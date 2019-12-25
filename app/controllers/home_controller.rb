@@ -2,12 +2,11 @@ class HomeController <ApplicationController
     before_action :authenticate_user!
 
     def index
-    @elments =nil
-    if user_signed_in?
-        @elments =current_user.products
-end 
-@availbles=Product.all
-end
+        @carts = current_user.carts
+        @whishlLists =current_user.whishLists 
+        @orders =current_user.orders
+         
+    end
 
 end
 
