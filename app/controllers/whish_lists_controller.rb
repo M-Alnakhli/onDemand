@@ -1,6 +1,6 @@
 class WhishListsController < ApplicationController
   before_action :set_whish_list, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /whish_lists
   # GET /whish_lists.json
  
